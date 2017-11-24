@@ -70,9 +70,10 @@ local themes = {
     "rainbow",         -- 8
     "steamburn",       -- 9
     "vertex",          -- 10
+    "krystian",        -- 11
 }
 
-local chosen_theme = themes[2]
+local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvt"
