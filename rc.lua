@@ -71,9 +71,10 @@ local themes = {
     "steamburn",       -- 9
     "vertex",          -- 10
     "krystian",        -- 11
+    "krystian2",        -- 12
 }
 
-local chosen_theme = themes[11]
+local chosen_theme = themes[12]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvt"
@@ -378,8 +379,11 @@ globalkeys = awful.util.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Dropdown application
-    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
+    awful.key({ altkey, }, "z", function () awful.screen.focused().quake:toggle() end,
               {description = "dropdown application", group = "launcher"}),
+-- Rofi client
+   awful.key({ modkey }, "z", function() awful.spawn("rofi -show run") end,
+      {description = "show Rofi", group = "launcher"}),
 
     -- Widgets popups
     awful.key({ altkey, }, "c", function () lain.widget.calendar.show(7) end,
@@ -727,4 +731,4 @@ client.connect_signal("focus",
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 -- Autostart application
-awful.util.spawn_with_shell ("compton") 
+awful.spawn.with_shell("~/.config/awesome/autostart.sh") 
